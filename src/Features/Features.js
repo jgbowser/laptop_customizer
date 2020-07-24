@@ -6,8 +6,17 @@ export default class Features extends React.Component {
         
         const features = Object.keys(this.props.featuresList).map((feature, idx) => {
         const featureHash = feature + '-' + idx
-        return <FeatureItem featureHash={featureHash} feature={feature} featuresList={this.props.featuresList}/>
-        })
+        return (
+            <FeatureItem 
+            key={featureHash}
+            featureHash={featureHash} 
+            feature={feature} 
+            featuresList={this.props.featuresList} 
+            currencyFormat={this.props.currencyFormat}
+            selectedOptions={this.props.selectedOptions}
+            updateOptions={this.props.updateOptions}
+            />
+        )})
 
         
         return (

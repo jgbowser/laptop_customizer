@@ -7,7 +7,16 @@ export default class FeatureItem extends React.Component {
 
         const options = this.props.featuresList[this.props.feature].map(item => {
             const itemHash = slugify(JSON.stringify(item))
-            return <FeatureItemButton itemHash={itemHash} feature={this.props.feature}  />
+            return (
+                <FeatureItemButton 
+                key={itemHash}
+                itemHash={itemHash} 
+                feature={this.props.feature} 
+                item={item} 
+                currencyFormat={this.props.currencyFormat}
+                selectedOptions={this.props.selectedOptions} 
+                updateOptions={this.props.updateOptions}
+                />)
         })
 
         return (
