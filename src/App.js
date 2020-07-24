@@ -3,10 +3,6 @@ import Header from './Header/Header'
 import Features from './Features/Features'
 import Cart from './Cart/Cart'
 
-// Normalizes string as a slug - a string that is safe to use
-// in both URLs and html attributes
-import slugify from 'slugify';
-
 import './App.css';
 
 // This object will allow us to
@@ -72,14 +68,3 @@ class App extends Component {
 }
 
 export default App;
-
-{/*<section className="main__summary">
-            <h2>Your cart</h2>
-            {summary}
-            <div className="summary__total">
-              <div className="summary__total__label">Total</div>
-              <div className="summary__total__value">
-                {USCurrencyFormat.format(total)}
-              </div>
-            </div>
-</section>*/}
