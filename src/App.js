@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './Header/Header'
 
 // Normalizes string as a slug - a string that is safe to use
 // in both URLs and html attributes
@@ -44,10 +45,16 @@ class App extends Component {
   };
 
   render() {
+
+    //Feature and Feature Item intertwined here.
+
     const features = Object.keys(this.props.features).map((feature, idx) => {
       const featureHash = feature + '-' + idx;
       const options = this.props.features[feature].map(item => {
         const itemHash = slugify(JSON.stringify(item));
+
+        // FeatureItem (radio buttons) returned here, check ^ to see which function does what
+
         return (
           <div key={itemHash} className="feature__item">
             <input
@@ -65,6 +72,8 @@ class App extends Component {
         );
       });
 
+      //Feature section here with FeatureItems{options}
+
       return (
         <fieldset className="feature" key={featureHash}>
           <legend className="feature__name">
@@ -79,6 +88,8 @@ class App extends Component {
       const featureHash = feature + '-' + idx;
       const selectedOption = this.state.selected[feature];
 
+      //CartItem returned here
+
       return (
         <div className="summary__option" key={featureHash}>
           <div className="summary__option__label">{feature} </div>
@@ -90,6 +101,8 @@ class App extends Component {
       );
     });
 
+    //Total math \/
+
     const total = Object.keys(this.state.selected).reduce(
       (acc, curr) => acc + this.state.selected[curr].cost,
       0
@@ -97,9 +110,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header>
-          <h1>ELF Computing | Laptops</h1>
-        </header>
+        <Header />
         <main>
           <form className="main__form">
             <h2>Customize your laptop</h2>
