@@ -1,6 +1,6 @@
 import React from 'react'
 import slugify from 'slugify'
-
+import './FeatureItemButton.css'
 
 //props needed: itemHash, feature(from FEATURES), updateFeature callback, USCurrency
 export default function FeatureItemButton(props) {

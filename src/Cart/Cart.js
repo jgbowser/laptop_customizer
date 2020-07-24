@@ -1,6 +1,7 @@
 import React from 'react'
 import CartTotal from '../CartTotal/CartTotal'
 import CartItem from '../CartItem/CartItem'
+import './Cart.css'
 
 export default function Cart(props) {
 

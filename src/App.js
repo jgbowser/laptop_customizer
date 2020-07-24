@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from './Header/Header'
 import Features from './Features/Features'
 import Cart from './Cart/Cart'
-
 import './App.css';
 
 // This object will allow us to

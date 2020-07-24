@@ -1,4 +1,5 @@
 import React from 'react'
+import './CartTotal.css'
 
 export default function CartTotal(props) {
     return (

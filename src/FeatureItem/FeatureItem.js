@@ -1,6 +1,7 @@
 import React from 'react'
 import slugify from 'slugify'
 import FeatureItemButton from '../FeatureItemButton/FeatureItemButton'
+import './FeatureItem.css'
 
 export default class FeatureItem extends React.Component {
     render() {
