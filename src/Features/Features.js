@@ -17,6 +17,7 @@ export default class Features extends React.Component {
             updateOptions={this.props.updateOptions}
             />
         )})
+        console.log(this.props.featuresList)
 
         
         return (

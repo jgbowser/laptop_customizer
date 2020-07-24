@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header/Header'
 import Features from './Features/Features'
+import Cart from './Cart/Cart'
 
 // Normalizes string as a slug - a string that is safe to use
 // in both URLs and html attributes
@@ -50,69 +51,6 @@ class App extends Component {
   };
 
   render() {
-
-    //Feature and Feature Item intertwined here.
-
-    const features = Object.keys(this.props.features).map((feature, idx) => {
-      const featureHash = feature + '-' + idx;
-      const options = this.props.features[feature].map(item => {
-        const itemHash = slugify(JSON.stringify(item));
-
-        // FeatureItem (radio buttons) returned here, check ^ to see which function does what
-
-        return (
-          <div key={itemHash} className="feature__item">
-            <input
-              type="radio"
-              id={itemHash}
-              className="feature__option"
-              name={slugify(feature)}
-              checked={item.name === this.state.selected[feature].name}
-              onChange={e => this.updateFeature(feature, item)}
-            />
-            <label htmlFor={itemHash} className="feature__label">
-              {item.name} ({USCurrencyFormat.format(item.cost)})
-            </label>
-          </div>
-        );
-      });
-
-      //Feature section here with FeatureItems{options}
-
-      return (
-        <fieldset className="feature" key={featureHash}>
-          <legend className="feature__name">
-            <h3>{feature}</h3>
-          </legend>
-          {options}
-        </fieldset>
-      );
-    });
-
-    const summary = Object.keys(this.state.selected).map((feature, idx) => {
-      const featureHash = feature + '-' + idx;
-      const selectedOption = this.state.selected[feature];
-
-      //CartItem returned here
-
-      return (
-        <div className="summary__option" key={featureHash}>
-          <div className="summary__option__label">{feature} </div>
-          <div className="summary__option__value">{selectedOption.name}</div>
-          <div className="summary__option__cost">
-            {USCurrencyFormat.format(selectedOption.cost)}
-          </div>
-        </div>
-      );
-    });
-
-    //Total math \/
-
-    const total = Object.keys(this.state.selected).reduce(
-      (acc, curr) => acc + this.state.selected[curr].cost,
-      0
-    );
-
     return (
       <div className="App">
         <Header />
@@ -123,7 +61,19 @@ class App extends Component {
             selectedOptions={this.state.selected}
             updateOptions={this.updateFeature}
           />
-          <section className="main__summary">
+          <Cart 
+           currencyFormat={USCurrencyFormat}
+           selectedOptions={this.state.selected}
+           />
+        </main>
+      </div>
+    );
+  }
+}
+
+export default App;
+
+{/*<section className="main__summary">
             <h2>Your cart</h2>
             {summary}
             <div className="summary__total">
@@ -132,11 +82,4 @@ class App extends Component {
                 {USCurrencyFormat.format(total)}
               </div>
             </div>
-          </section>
-        </main>
-      </div>
-    );
-  }
-}
-
-export default App;
+</section>*/}
