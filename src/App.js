@@ -4,6 +4,7 @@ import Features from './Features/Features'
 import Cart from './Cart/Cart'
 import './App.css';
 
+
 // This object will allow us to
 // easily convert numbers into US dollar values
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
@@ -51,7 +52,6 @@ class App extends Component {
         <Header />
         <main>
           <Features 
-            featuresList={this.props.features} 
             currencyFormat={USCurrencyFormat}
             selectedOptions={this.state.selected}
             updateOptions={this.updateFeature}

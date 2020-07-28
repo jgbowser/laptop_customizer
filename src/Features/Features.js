@@ -1,24 +1,24 @@
 import React from 'react'
 import FeatureItem from '../FeatureItem/FeatureItem'
 import './Features.css'
+import FEATURES from '../FeatureData'
 
 export default class Features extends React.Component {
     render() {
         
-        const features = Object.keys(this.props.featuresList).map((feature, idx) => {
+        const features = Object.keys(FEATURES).map((feature, idx) => {
         const featureHash = feature + '-' + idx
         return (
             <FeatureItem 
             key={featureHash}
             featureHash={featureHash} 
-            feature={feature} 
-            featuresList={this.props.featuresList} 
+            feature={feature}  
             currencyFormat={this.props.currencyFormat}
             selectedOptions={this.props.selectedOptions}
             updateOptions={this.props.updateOptions}
             />
         )})
-        console.log(this.props.featuresList)
+        
 
         
         return (

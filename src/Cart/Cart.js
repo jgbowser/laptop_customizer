@@ -10,6 +10,7 @@ export default function Cart(props) {
         const selectedOption = props.selectedOptions[feature];
         return (
           <CartItem 
+            key={featureHash}
             featureHash={featureHash}
             selectedOption={selectedOption}
             feature={feature}

@@ -2,11 +2,12 @@ import React from 'react'
 import slugify from 'slugify'
 import FeatureItemButton from '../FeatureItemButton/FeatureItemButton'
 import './FeatureItem.css'
+import FEATURES from '../FeatureData'
 
 export default class FeatureItem extends React.Component {
     render() {
 
-        const options = this.props.featuresList[this.props.feature].map(item => {
+        const options = FEATURES[this.props.feature].map(item => {
             const itemHash = slugify(JSON.stringify(item))
             return (
                 <FeatureItemButton 
